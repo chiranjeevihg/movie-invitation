@@ -29,6 +29,7 @@
         box-shadow: 0 0 30px gold;
         animation: fadeIn 2s ease-in-out forwards;
         opacity: 0;
+        display: none;
     }
 
     h1 {
@@ -46,7 +47,6 @@
     }
 
     .button {
-        margin-top: 30px;
         padding: 15px 30px;
         background: #FFD700;
         color: #000;
@@ -56,6 +56,7 @@
         border-radius: 10px;
         transition: 0.3s;
         display: inline-block;
+        cursor: pointer;
     }
 
     .button:hover {
@@ -65,13 +66,21 @@
 
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        to { opacity: 1; transform: translateY(0); opacity: 1; }
+    }
+
+    .intro {
+        text-align: center;
     }
 </style>
 </head>
 <body>
 
-<div class="container">
+<div class="intro">
+    <button id="openButton" class="button">💌 Open the Invitation</button>
+</div>
+
+<div class="container" id="invitation">
     <h1>Hi Gundu Mari,</h1>
     <p>Nam naduve swalpa jagala, mouna, bejaar aagiro incidents ide... Adre, ide nam kathe aagi ulibaardu.</p>
     <p>Ishtella aagide, ondu hosa prarambha maadana. Yaak naavu ondu movie nodak hogbaardu?</p>
@@ -81,17 +90,20 @@
     <a href="tel:+your-phone-number" class="button">Reply to Chiru</a>
 </div>
 
-<audio id="bgMusic" autoplay loop>
+<audio id="bgMusic" loop>
   <source src="SteadyHeartsStrongerRoads.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-  // For browsers that block autoplay, play after first click/tap
-  document.addEventListener('click', () => {
-    const music = document.getElementById('bgMusic');
-    if (music.paused) {
-      music.play().catch(err => console.log("Playback blocked:", err));
-    }
+  const openButton = document.getElementById('openButton');
+  const invitation = document.getElementById('invitation');
+  const music = document.getElementById('bgMusic');
+
+  openButton.addEventListener('click', () => {
+    openButton.style.display = 'none';
+    invitation.style.display = 'block';
+    setTimeout(() => invitation.style.opacity = 1, 100);
+    music.play().catch(err => console.log("Autoplay blocked:", err));
   });
 </script>
 
