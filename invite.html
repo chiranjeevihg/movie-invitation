@@ -56,7 +56,6 @@
         border-radius: 10px;
         transition: 0.3s;
         display: inline-block;
-        cursor: pointer;
     }
 
     .button:hover {
@@ -82,26 +81,17 @@
     <a href="tel:+your-phone-number" class="button">Reply to Chiru</a>
 </div>
 
-<!-- Audio -->
-<audio id="bgMusic" loop>
+<audio id="bgMusic" autoplay loop>
   <source src="SteadyHeartsStrongerRoads.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
 </audio>
 
-<!-- Play Music Button -->
-<button id="playButton" class="button">Play Music</button>
-
 <script>
-  const music = document.getElementById('bgMusic');
-  const playButton = document.getElementById('playButton');
-
-  // Play music on button click
-  playButton.addEventListener('click', () => {
-    music.play().then(() => {
-      playButton.style.display = 'none'; // Hide button after play
-    }).catch(err => {
-      alert("Cannot play audio: " + err);
-    });
+  // For browsers that block autoplay, play after first click/tap
+  document.addEventListener('click', () => {
+    const music = document.getElementById('bgMusic');
+    if (music.paused) {
+      music.play().catch(err => console.log("Playback blocked:", err));
+    }
   });
 </script>
 
