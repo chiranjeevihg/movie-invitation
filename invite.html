@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movie Invitation</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+        color: #FFD700;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .container {
+        max-width: 700px;
+        padding: 40px;
+        background: rgba(0,0,0,0.7);
+        border-radius: 20px;
+        box-shadow: 0 0 30px gold;
+        animation: fadeIn 2s ease-in-out forwards;
+        opacity: 0;
+    }
+
+    h1 {
+        font-family: 'Great Vibes', cursive;
+        font-size: 3em;
+        margin-bottom: 20px;
+        color: #FFD700;
+    }
+
+    p {
+        font-size: 1.2em;
+        margin: 15px 0;
+        line-height: 1.6;
+        color: #f5f5dc;
+    }
+
+    .button {
+        margin-top: 30px;
+        padding: 15px 30px;
+        background: #FFD700;
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2em;
+        border-radius: 10px;
+        transition: 0.3s;
+        display: inline-block;
+    }
+
+    .button:hover {
+        background: #e6c200;
+        transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Hi Gundu Mari,</h1>
+    <p>Nam naduve swalpa jagala, mouna, bejaar aagiro incidents ide... Adre, ide nam kathe aagi ulibaardu.</p>
+    <p>Ishtella aagide, ondu hosa prarambha maadana. Yaak naavu ondu movie nodak hogbaardu?</p>
+    <p><strong>Kantara</strong> movie nodakke hogona? Ibru jotege hogi nodkond barana, chennagiratte.</p>
+    <p>Please mention your suitable timings... Habbada vaataavarana irodakke, if it's okay, Oct 18th is fine? Just mention the time range.</p>
+    <p>Your lovingly, <br><strong>Chiru 💖</strong></p>
+    <a href="tel:+your-phone-number" class="button">Reply to Chiru</a>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="SteadyHeartsStrongerRoads.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="document.getElementById('bgMusic').play()" class="button">
+  Play Music
+</button>
+
+
+</body>
+</html>
